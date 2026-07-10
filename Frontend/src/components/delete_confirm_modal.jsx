@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { useStat } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import { SnackbarProvider, useSnackbar } from 'notistack';
 

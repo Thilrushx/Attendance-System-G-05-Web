@@ -313,7 +313,7 @@ const admin_subject = () => {
 
     return (
         <div class="flex flex-col min-h-screen">
-            <Header user={true} />
+            <Header whichversion={'admin'} />
             <div className="flex-grow flex items-center justify-center">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-5 min-h- items-center justify-center">
             <div className="grid grid-rows-5 gap-y-9"> 

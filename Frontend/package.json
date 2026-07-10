@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.12",
+    "html5-qrcode": "^2.3.8",
     "jsonwebtoken": "^9.0.2",
     "notistack": "^3.0.2",
     "react": "^19.0.0",

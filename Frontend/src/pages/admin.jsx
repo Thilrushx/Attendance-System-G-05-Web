@@ -142,16 +142,21 @@ const Admin = () => {
     };
 
     async function populateLec () {
-        const req = await fetch('http://localhost:1337/api/lectures',{
-            headers:{
-                'x-access-token': localStorage.getItem('admintoken')
+        try {
+            const req = await fetch('http://localhost:1337/api/lectures',{
+                headers:{
+                    'x-access-token': localStorage.getItem('admintoken')
+                }
+            });
+            const data = await req.json();
+            if(data.status==='ok'){
+                setlecturerData(data.lec_data);
+            }else{
+                localStorage.removeItem('admintoken');
+                navigate('/');
             }
-        })
-        const data = await req.json();
-        if(data.status==='ok'){
-            setlecturerData(data.lec_data)
-        }else{
-            alert(data.error)
+        } catch {
+            console.error('Failed to load lecturers');
         }
     }
 
@@ -163,7 +168,8 @@ const Admin = () => {
         }else{
             populateLec()
         }
-    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     return (
         <div className="flex flex-col min-h-screen">
